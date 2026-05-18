@@ -1,0 +1,46 @@
+# Prime ChainSentinel — Python Dependencies
+# Reaper Eagle Technologies | Fabian Sabogal
+#
+# Install locally:
+#   pip install -r requirements.txt
+#
+# On MI300X (ROCm), install PyTorch separately after this file, e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/rocm6.0
+# or the ROCm wheel version recommended by the AMD image/provider.
+
+# Core scientific stack
+numpy>=1.26.0
+pandas>=2.2.0
+scipy>=1.12.0
+
+# Statistical modeling / future forecasting module
+statsmodels>=0.14.0
+scikit-learn>=1.4.0
+
+# Hashing
+# Required for paper-grade BLAKE3 results. If absent, code can fall back to
+# BLAKE2b but clearly labels the result as blake2b_fallback.
+blake3>=0.3.3
+
+# System info
+psutil>=5.9.0
+
+# Backend (Phase 2)
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.7.0
+sqlalchemy>=2.0.0
+
+# Report generation (Phase 4)
+reportlab>=4.1.0
+
+# Dev / testing
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0
+
+# PyTorch is intentionally not pinned here because CPU/CUDA/ROCm wheels differ.
+# CPU only:
+#   pip install torch
+# ROCm 6.x:
+#   pip install torch --index-url https://download.pytorch.org/whl/rocm6.0
